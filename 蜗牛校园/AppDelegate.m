@@ -8,18 +8,110 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+
+@interface AppDelegate ()<UIScrollViewDelegate>
+@property (nonatomic , strong)UIScrollView *linkPagescrollView;
 
 @end
 
 @implementation AppDelegate
-
+NSString* const firstLauch   = @"firstLauch";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Override point for customization after application launch.]
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+                   
+    
+    [self judgment];
+    
+    [self.window makeKeyAndVisible];
     return YES;
+    
 }
 
+//判断一下，是不是第一次登陆入口
+-(void)judgment
+{
+    //用存储查值的方法，判断是不是第一次登陆。如果程序中没有拿不到数值。说明是第一次启动。然后加上数值。第二次启动就一定可以查到。
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:firstLauch]) {
+        
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:firstLauch];
+        NSLog(@"第一次启动");
+        
+        [self goLinkPage];
+    }
+    else
+    {
+        NSLog(@"不是第一次启动");
+        [self goMain];
+    }
+    
+}
+
+-(void)goLinkPage
+{
+   
+    [self startScrollview];
+    
+    
+}
+-(void)goMain
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"tab"];
+     self.window.rootViewController = tab;
+    
+    
+}
+-(UIScrollView *)startScrollview
+{
+    CGRect rect = self.window.bounds;
+    if (!self.linkPagescrollView)
+    {
+        self.linkPagescrollView = [[UIScrollView alloc]initWithFrame:rect];
+        self.linkPagescrollView.bounces = NO;
+        self.linkPagescrollView.delegate = self;
+        
+        self.linkPagescrollView.pagingEnabled = YES;
+        self.linkPagescrollView.contentSize = CGSizeMake(rect.size.width*3,rect.size.height);
+        
+        self.linkPagescrollView.showsVerticalScrollIndicator =YES;
+        
+        self.linkPagescrollView.showsHorizontalScrollIndicator = YES;
+        
+        self.linkPagescrollView.userInteractionEnabled = YES;
+        self.linkPagescrollView.backgroundColor = [UIColor orangeColor];
+        
+        [self.window addSubview:self.linkPagescrollView];
+        
+        
+    }
+    return self.linkPagescrollView;
+}
+-(UITapGestureRecognizer *)singleRecognizer
+{
+    UITapGestureRecognizer *singleRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imgeviewAddTap)];
+    singleRecognizer.numberOfTapsRequired = 1;
+    return singleRecognizer;
+    
+}
+
+//点击手势后
+-(void)imgeviewAddTap
+{
+    
+    [self goMain];
+
+}
+//scrollview代理方法
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+{
+    //    NSLog(@" scrollViewDidScroll");
+    if (scrollView.contentOffset.x == self.linkPagescrollView.bounds.size.width*2) {
+        [self.linkPagescrollView addGestureRecognizer:[self singleRecognizer]];
+
+    }
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
