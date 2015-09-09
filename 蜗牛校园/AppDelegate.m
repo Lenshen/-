@@ -11,6 +11,8 @@
 
 @interface AppDelegate ()<UIScrollViewDelegate>
 @property (nonatomic , strong)UIScrollView *linkPagescrollView;
+@property (nonatomic , strong)NSArray *imageArray;
+
 
 @end
 
@@ -55,11 +57,16 @@ NSString* const firstLauch   = @"firstLauch";
     
     
 }
+-(void)initArray
+{
+    
+}
+
 -(void)goMain
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UITabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"tab"];
-     self.window.rootViewController = tab;
+         self.window.rootViewController = tab;
     
     
 }
@@ -75,14 +82,23 @@ NSString* const firstLauch   = @"firstLauch";
         self.linkPagescrollView.pagingEnabled = YES;
         self.linkPagescrollView.contentSize = CGSizeMake(rect.size.width*3,rect.size.height);
         
-        self.linkPagescrollView.showsVerticalScrollIndicator =YES;
+        self.linkPagescrollView.showsVerticalScrollIndicator = NO;
         
-        self.linkPagescrollView.showsHorizontalScrollIndicator = YES;
+        self.linkPagescrollView.showsHorizontalScrollIndicator = NO;
         
         self.linkPagescrollView.userInteractionEnabled = YES;
         self.linkPagescrollView.backgroundColor = [UIColor orangeColor];
         
         [self.window addSubview:self.linkPagescrollView];
+        self.imageArray = [NSArray arrayWithObjects:[UIImage imageNamed:@"first"],[UIImage imageNamed:@"second"],[UIImage imageNamed:@"third"],nil];
+        for (int i = 0; i < 3; i++)
+        {
+            UIImageView *imageView = [[UIImageView alloc]initWithImage:[self.imageArray objectAtIndex:i]];
+            imageView.frame = CGRectMake(self.window.bounds.size.width*i, 0, self.window.bounds.size.width, self.window.bounds.size.height);
+            [self.linkPagescrollView addSubview:imageView];
+           
+            
+        }
         
         
     }
@@ -112,6 +128,9 @@ NSString* const firstLauch   = @"firstLauch";
 
     }
 }
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
