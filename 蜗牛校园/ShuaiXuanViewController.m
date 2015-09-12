@@ -1,30 +1,26 @@
 //
-//  TabBarController.m
+//  ShuaiXuanViewController.m
 //  蜗牛校园
 //
-//  Created by 远深 on 15/9/4.
+//  Created by 远深 on 15/9/9.
 //  Copyright (c) 2015年 yance.bao. All rights reserved.
 //
 
-#import "TabBarController.h"
+#import "ShuaiXuanViewController.h"
 
-@interface TabBarController ()
+@interface ShuaiXuanViewController ()
 
 @end
 
-@implementation TabBarController
+@implementation ShuaiXuanViewController
+- (IBAction)Black:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"发布"]];
-    _image.frame = CGRectMake(self.view.frame.size.width/2-25, 510 , _image.frame.size.height, self.image.frame.size.width);
-    [self.view addSubview:self.image];
-    
-
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

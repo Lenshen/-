@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5134042E1BA2B5B70039EB8C /* SelectionCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5134042D1BA2B5B70039EB8C /* SelectionCollectionViewController.m */; };
 		513738CE1B9A833C00813DFB /* 搜索@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 513738CD1B9A833C00813DFB /* 搜索@2x.png */; };
 		513738D21B9AB62800813DFB /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 513738D01B9AB62800813DFB /* CollectionViewCell.m */; };
+		5149C9991BA00C3300646C00 /* ShuaiXuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5149C9981BA00C3300646C00 /* ShuaiXuanViewController.m */; };
+		5149C9A51BA28BF500646C00 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5149C9A41BA28BF500646C00 /* SearchTableViewController.m */; };
 		51591A0B1B9D2183000C9762 /* 主页 黄色.png in Resources */ = {isa = PBXBuildFile; fileRef = 51591A031B9D2183000C9762 /* 主页 黄色.png */; };
 		51591A0C1B9D2183000C9762 /* 主页.png in Resources */ = {isa = PBXBuildFile; fileRef = 51591A041B9D2183000C9762 /* 主页.png */; };
 		51591A0D1B9D2183000C9762 /* 兴趣 黄色.png in Resources */ = {isa = PBXBuildFile; fileRef = 51591A051B9D2183000C9762 /* 兴趣 黄色.png */; };
@@ -18,17 +21,15 @@
 		51591A111B9D2183000C9762 /* 消息 黄色.png in Resources */ = {isa = PBXBuildFile; fileRef = 51591A091B9D2183000C9762 /* 消息 黄色.png */; };
 		51591A121B9D2183000C9762 /* 消息.png in Resources */ = {isa = PBXBuildFile; fileRef = 51591A0A1B9D2183000C9762 /* 消息.png */; };
 		51591A141B9D3300000C9762 /* 发布.png in Resources */ = {isa = PBXBuildFile; fileRef = 51591A131B9D3300000C9762 /* 发布.png */; };
-		51591A171B9D5323000C9762 /* SearchViewControllwe.m in Sources */ = {isa = PBXBuildFile; fileRef = 51591A161B9D5323000C9762 /* SearchViewControllwe.m */; };
-		51591A1D1B9D5988000C9762 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51591A1C1B9D5988000C9762 /* SearchTableViewCell.m */; };
 		51591A1F1B9D6FCB000C9762 /* 我的  新的@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51591A1E1B9D6FCB000C9762 /* 我的  新的@2x.png */; };
 		51591A211B9D7262000C9762 /* 新的 我的 @2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51591A201B9D7262000C9762 /* 新的 我的 @2x.png */; };
 		51591A231B9D80A0000C9762 /* X下拉 反的 @2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51591A221B9D80A0000C9762 /* X下拉 反的 @2x.png */; };
+		515E08261BA2E5E900F59767 /* SearchCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 515E08251BA2E5E900F59767 /* SearchCollectionReusableView.m */; };
 		515F97411B993C5C008F99D6 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 515F97401B993C5C008F99D6 /* MessageViewController.m */; };
 		515F97441B993C73008F99D6 /* OwnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 515F97431B993C73008F99D6 /* OwnViewController.m */; };
 		515F97471B993CE6008F99D6 /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 515F97461B993CE6008F99D6 /* FirstPageViewController.m */; };
 		515F974A1B993E99008F99D6 /* TribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 515F97491B993E99008F99D6 /* TribeViewController.m */; };
 		5168AFC81B9991AA00DF0CE6 /* lcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5168AFC71B9991AA00DF0CE6 /* lcon@2x.png */; };
-		5168AFCB1B99946700DF0CE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5168AFCA1B99946700DF0CE6 /* Images.xcassets */; };
 		516FDBC61B9ADBCF00A6C887 /* 未验证@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516FDBC51B9ADBCF00A6C887 /* 未验证@2x.png */; };
 		516FDBC81B9AEA9600A6C887 /* 位置@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516FDBC71B9AEA9600A6C887 /* 位置@2x.png */; };
 		516FDBCA1B9AECFC00A6C887 /* 评论.png in Resources */ = {isa = PBXBuildFile; fileRef = 516FDBC91B9AECFC00A6C887 /* 评论.png */; };
@@ -53,9 +54,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5134042C1BA2B5B70039EB8C /* SelectionCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionCollectionViewController.h; sourceTree = "<group>"; };
+		5134042D1BA2B5B70039EB8C /* SelectionCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionCollectionViewController.m; sourceTree = "<group>"; };
 		513738CD1B9A833C00813DFB /* 搜索@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "搜索@2x.png"; sourceTree = "<group>"; };
 		513738CF1B9AB62800813DFB /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		513738D01B9AB62800813DFB /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		5149C9971BA00C3300646C00 /* ShuaiXuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuaiXuanViewController.h; sourceTree = "<group>"; };
+		5149C9981BA00C3300646C00 /* ShuaiXuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuaiXuanViewController.m; sourceTree = "<group>"; };
+		5149C9A31BA28BF500646C00 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		5149C9A41BA28BF500646C00 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		51591A031B9D2183000C9762 /* 主页 黄色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页 黄色.png"; sourceTree = "<group>"; };
 		51591A041B9D2183000C9762 /* 主页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页.png"; sourceTree = "<group>"; };
 		51591A051B9D2183000C9762 /* 兴趣 黄色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "兴趣 黄色.png"; sourceTree = "<group>"; };
@@ -65,13 +72,11 @@
 		51591A091B9D2183000C9762 /* 消息 黄色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息 黄色.png"; sourceTree = "<group>"; };
 		51591A0A1B9D2183000C9762 /* 消息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息.png"; sourceTree = "<group>"; };
 		51591A131B9D3300000C9762 /* 发布.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发布.png"; sourceTree = "<group>"; };
-		51591A151B9D5323000C9762 /* SearchViewControllwe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewControllwe.h; sourceTree = "<group>"; };
-		51591A161B9D5323000C9762 /* SearchViewControllwe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewControllwe.m; sourceTree = "<group>"; };
-		51591A1B1B9D5988000C9762 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
-		51591A1C1B9D5988000C9762 /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
-		51591A1E1B9D6FCB000C9762 /* 我的  新的@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的  新的@2x.png"; sourceTree = "<group>"; };
+		51591A1E1B9D6FCB000C9762 /* 我的  新的@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "我的  新的@2x.png"; path = "../我的  新的@2x.png"; sourceTree = "<group>"; };
 		51591A201B9D7262000C9762 /* 新的 我的 @2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "新的 我的 @2x.png"; path = "../新的 我的 @2x.png"; sourceTree = "<group>"; };
 		51591A221B9D80A0000C9762 /* X下拉 反的 @2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "X下拉 反的 @2x.png"; sourceTree = "<group>"; };
+		515E08241BA2E5E900F59767 /* SearchCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCollectionReusableView.h; sourceTree = "<group>"; };
+		515E08251BA2E5E900F59767 /* SearchCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCollectionReusableView.m; sourceTree = "<group>"; };
 		515F973F1B993C5C008F99D6 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		515F97401B993C5C008F99D6 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		515F97421B993C73008F99D6 /* OwnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnViewController.h; sourceTree = "<group>"; };
@@ -81,7 +86,6 @@
 		515F97481B993E99008F99D6 /* TribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TribeViewController.h; sourceTree = "<group>"; };
 		515F97491B993E99008F99D6 /* TribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TribeViewController.m; sourceTree = "<group>"; };
 		5168AFC71B9991AA00DF0CE6 /* lcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lcon@2x.png"; sourceTree = "<group>"; };
-		5168AFCA1B99946700DF0CE6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		516FDBC51B9ADBCF00A6C887 /* 未验证@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "未验证@2x.png"; sourceTree = "<group>"; };
 		516FDBC71B9AEA9600A6C887 /* 位置@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "位置@2x.png"; sourceTree = "<group>"; };
 		516FDBC91B9AECFC00A6C887 /* 评论.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "评论.png"; path = "../评论.png"; sourceTree = "<group>"; };
@@ -120,9 +124,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		513404321BA2BFE90039EB8C /* collectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5134042C1BA2B5B70039EB8C /* SelectionCollectionViewController.h */,
+				5134042D1BA2B5B70039EB8C /* SelectionCollectionViewController.m */,
+				515E08241BA2E5E900F59767 /* SearchCollectionReusableView.h */,
+				515E08251BA2E5E900F59767 /* SearchCollectionReusableView.m */,
+			);
+			name = collectionViewController;
+			sourceTree = "<group>";
+		};
 		51591A021B9D2183000C9762 /* 新建文件夹 */ = {
 			isa = PBXGroup;
 			children = (
+				51591A1E1B9D6FCB000C9762 /* 我的  新的@2x.png */,
 				51591A201B9D7262000C9762 /* 新的 我的 @2x.png */,
 				516FDBC91B9AECFC00A6C887 /* 评论.png */,
 				51591A031B9D2183000C9762 /* 主页 黄色.png */,
@@ -149,6 +165,9 @@
 		515F973E1B993C2C008F99D6 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				513404321BA2BFE90039EB8C /* collectionViewController */,
+				5149C9A41BA28BF500646C00 /* SearchTableViewController.m */,
+				5149C9A31BA28BF500646C00 /* SearchTableViewController.h */,
 				515F97451B993CE6008F99D6 /* FirstPageViewController.h */,
 				515F97461B993CE6008F99D6 /* FirstPageViewController.m */,
 				515F97481B993E99008F99D6 /* TribeViewController.h */,
@@ -157,15 +176,12 @@
 				515F97401B993C5C008F99D6 /* MessageViewController.m */,
 				515F97421B993C73008F99D6 /* OwnViewController.h */,
 				515F97431B993C73008F99D6 /* OwnViewController.m */,
-				51591A1E1B9D6FCB000C9762 /* 我的  新的@2x.png */,
+				5149C9971BA00C3300646C00 /* ShuaiXuanViewController.h */,
+				5149C9981BA00C3300646C00 /* ShuaiXuanViewController.m */,
 				51E950671B9981CB00798608 /* TabBarController.h */,
 				51E950681B9981CB00798608 /* TabBarController.m */,
 				513738CF1B9AB62800813DFB /* CollectionViewCell.h */,
 				513738D01B9AB62800813DFB /* CollectionViewCell.m */,
-				51591A151B9D5323000C9762 /* SearchViewControllwe.h */,
-				51591A161B9D5323000C9762 /* SearchViewControllwe.m */,
-				51591A1B1B9D5988000C9762 /* SearchTableViewCell.h */,
-				51591A1C1B9D5988000C9762 /* SearchTableViewCell.m */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -199,7 +215,6 @@
 				51B395331B992B64004236BC /* ViewController.m */,
 				5168AFC71B9991AA00DF0CE6 /* lcon@2x.png */,
 				51591A021B9D2183000C9762 /* 新建文件夹 */,
-				5168AFCA1B99946700DF0CE6 /* Images.xcassets */,
 				51591A131B9D3300000C9762 /* 发布.png */,
 				516FDBC71B9AEA9600A6C887 /* 位置@2x.png */,
 				516FDBC51B9ADBCF00A6C887 /* 未验证@2x.png */,
@@ -321,7 +336,6 @@
 				51591A111B9D2183000C9762 /* 消息 黄色.png in Resources */,
 				51591A0E1B9D2183000C9762 /* 兴趣.png in Resources */,
 				5168AFC81B9991AA00DF0CE6 /* lcon@2x.png in Resources */,
-				5168AFCB1B99946700DF0CE6 /* Images.xcassets in Resources */,
 				516FDBC61B9ADBCF00A6C887 /* 未验证@2x.png in Resources */,
 				51591A0D1B9D2183000C9762 /* 兴趣 黄色.png in Resources */,
 				51B395371B992B64004236BC /* Main.storyboard in Resources */,
@@ -357,14 +371,16 @@
 				51B3952E1B992B64004236BC /* AppDelegate.m in Sources */,
 				515F97411B993C5C008F99D6 /* MessageViewController.m in Sources */,
 				51B395311B992B64004236BC /* ____.xcdatamodeld in Sources */,
+				5149C9A51BA28BF500646C00 /* SearchTableViewController.m in Sources */,
 				51E950691B9981CB00798608 /* TabBarController.m in Sources */,
+				515E08261BA2E5E900F59767 /* SearchCollectionReusableView.m in Sources */,
 				515F97441B993C73008F99D6 /* OwnViewController.m in Sources */,
-				51591A1D1B9D5988000C9762 /* SearchTableViewCell.m in Sources */,
+				5134042E1BA2B5B70039EB8C /* SelectionCollectionViewController.m in Sources */,
+				5149C9991BA00C3300646C00 /* ShuaiXuanViewController.m in Sources */,
 				515F97471B993CE6008F99D6 /* FirstPageViewController.m in Sources */,
 				513738D21B9AB62800813DFB /* CollectionViewCell.m in Sources */,
 				515F974A1B993E99008F99D6 /* TribeViewController.m in Sources */,
 				51B395341B992B64004236BC /* ViewController.m in Sources */,
-				51591A171B9D5323000C9762 /* SearchViewControllwe.m in Sources */,
 				51B3952B1B992B64004236BC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
