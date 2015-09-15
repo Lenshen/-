@@ -30,12 +30,12 @@
             [[view.subviews objectAtIndex:0]removeFromSuperview];
         }
     }
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-[[self.searchBar.subviews objectAtIndex:0] removeFromSuperview];
 }
 
 #pragma mark - Table view data source
@@ -51,7 +51,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 7;
+    return 8;
 }
 
 /*

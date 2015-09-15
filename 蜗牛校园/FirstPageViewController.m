@@ -7,11 +7,13 @@
 //
 
 #import "FirstPageViewController.h"
-#import "CollectionViewCell.h"
+#import "FirstPageCollectionViewCell.h"
 #import "TabBarController.h"
+#import "SearchCollectionReusableView.h"
+#import "FirstPageViewCollectionReusableView.h"
 
 @interface FirstPageViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
 
 @end
 
@@ -24,45 +26,49 @@
 
 
 
-    [self flowLayout];
+  
    
     
     
 }
 
 
--(void)flowLayout
-{
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    flowLayout.headerReferenceSize = CGSizeMake(5, 5);
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 289, 119) collectionViewLayout:flowLayout];
-  
-  
-   
-}
+
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return 10;
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *const identify= @"Cell";
-    CollectionViewCell *cell = (CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
+    static NSString *const identify= @"cell";
+    FirstPageCollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     if (!cell) {
         NSLog(@"无法创建，自定义不能进来");
     }
+    
+    
+    [cell setScrollViewContentSize];
    
-   
-    return cell;
+    return cell ;
     
 
     
 }
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+   
+    FirstPageViewCollectionReusableView  *reusableView  = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"reuseableView"
+                                                                  forIndexPath:indexPath];
+    [reusableView setScrollviewContentSize];
+ 
 
+    return  reusableView;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

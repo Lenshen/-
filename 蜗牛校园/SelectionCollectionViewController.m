@@ -18,7 +18,6 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 static NSString * const reuseIdentifier = @"Cell";
 
 
@@ -63,9 +62,15 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    self.reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReuseableView"
-                                                                                                   forIndexPath:indexPath];
-    [self.reusableView searchBarHide];
+    if (!self.reusableView) {
+        self.reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReuseableView"
+                                                                      forIndexPath:indexPath];
+    }
+    
+    if (indexPath.row == 0) {
+        [self.reusableView searchBarHide];
+
+    }
 
     return  self.reusableView;
 }
