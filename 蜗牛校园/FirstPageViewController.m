@@ -12,7 +12,8 @@
 #import "SearchCollectionReusableView.h"
 #import "FirstPageViewCollectionReusableView.h"
 
-@interface FirstPageViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface FirstPageViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *topView;
 
 
 @end
@@ -23,7 +24,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //他的下个页面底部视图（tabbar）会隐藏
-
+    self.topView.hidden = YES;
+    
+   
 
 
   
@@ -33,7 +36,17 @@
 }
 
 
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.y>=140) {
+        self.topView.hidden =  NO ;
+    }else
+    {
+        self.topView.hidden = YES ;
+    
+    }
+    NSLog(@"%f",scrollView.contentOffset.y);
+}
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }

@@ -22,8 +22,19 @@
         self.scrollView.scrollEnabled = YES;
         self.scrollView.contentSize = CGSizeMake(size.width*3, size.height);
 
-    
+   self.myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(scrollViewTime) userInfo:nil repeats:YES];
+    self.i = 0;
   
 }
+-(void)scrollViewTime
+{
+    
+    self.i++;
+    if (self.i>=3) {
+        self.i=0;
+    }
+    [self.scrollView scrollRectToVisible:CGRectMake(self.i * 320.0, 0, 320.0, self.scrollView.frame.size.height) animated:YES];
+}
+
 
 @end

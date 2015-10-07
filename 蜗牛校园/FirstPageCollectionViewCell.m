@@ -19,5 +19,8 @@
     self.FirstPageSmallScrollView.showsHorizontalScrollIndicator = YES;
     self.FirstPageSmallScrollView.showsVerticalScrollIndicator = NO;
     self.FirstPageSmallScrollView.contentSize = CGSizeMake(controller.view.frame.size.width*2, self.FirstPageSmallScrollView.frame.size.height);
+    
+    
 }
+
 @end

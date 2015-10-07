@@ -24,6 +24,27 @@
     self.preparationTabView.dataSource = self;
  
 }
+- (IBAction)nationalButton:(id)sender
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    button.frame = CGRectMake(400.0f, 0.0f, 300.0f, 233.0f);
+
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:24.0f];
+    button.backgroundColor = [UIColor blackColor];
+    
+    // 添加 action
+    
+//    [button addTarget:self action:@selector(toggleButton:) forControlEvents: UIControlEventTouchUpInside]
+    
+    [self.view addSubview:button];
+    
+
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
