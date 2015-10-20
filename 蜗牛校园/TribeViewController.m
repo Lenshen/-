@@ -8,11 +8,15 @@
 
 #import "TribeViewController.h"
 #import "InterestTableViewCell.h"
+#import "TribeDetailsViewController.h"
+#import "TribeCollectionReusableView.h"
+#import "tribeModel.h"
 
 @interface TribeViewController ()<UITableViewDataSource,UITableViewDelegate>;
 @property (weak, nonatomic) IBOutlet UITableView *tribeTableView;
 @property (strong, nonatomic)NSArray *tribeNameArray;
 @property (strong, nonatomic)NSArray *followArray;
+@property (strong, nonatomic)NSArray *imageArray;
 @property (strong, nonatomic)NSArray *noteArray;
 @property (strong, nonatomic)NSArray *signArray;
 @property (strong, nonatomic)NSTimer *firstPageTimer;
@@ -30,9 +34,9 @@
     // Do any additional setup after loading the view.
     self.tribeTableView.delegate = self;
     self.tribeTableView.dataSource = self;
-    [self initArray];
+    self.tribeTableView.showsVerticalScrollIndicator = NO;
     [self setScrollViewContentSize];
-}
+    }
 -(void)setScrollViewContentSize
 {
     CGSize size = self.tribeScrollView.frame.size;
@@ -57,16 +61,7 @@
 }
 
 
--(void)initArray
-{
-    if (!self.tribeNameArray) {
-        self.tribeNameArray = [NSArray arrayWithObjects:@"学霸部落",@"数码部落",@"户外部落",@"穿搭部落", nil];
-    
-    }
-    if (!self.signArray) {
-        self.signArray = [NSArray arrayWithObjects:@"让我们一起学习吧。",@"我们看这里的数码产品。",@"一群真正热爱户外的驴友...",@"穿搭教学 时尚部落客..", nil];
-    }
-}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -75,13 +70,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     InterestTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"interstCell" forIndexPath:indexPath];
-    cell.tribeNameLabel.text = self.tribeNameArray[indexPath.row];
-    cell.signLabel.text = self.signArray[indexPath.row];
+    tribeModel *tm = [[tribeModel alloc]initWithArray];
+    cell.tribeNameLabel.text = tm.tribeNameArray[indexPath.row];
+    cell.signLabel.text = tm.tribeSignArray[indexPath.row];
+    cell.tribeImage.image = tm.tribeImageArray[indexPath.row];
     return cell;
 }
+#pragma mark - tableView点击事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"LLLLL%ld",(long)indexPath.row);
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    TribeDetailsViewController *td = [storyboard instantiateViewControllerWithIdentifier:@"TribeDetailsViewController"];
+    td.index = (int)indexPath.row;
+    [td setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:td animated:YES completion:nil];
     
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

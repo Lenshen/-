@@ -8,23 +8,69 @@
 
 #import "TabBarController.h"
 
-@interface TabBarController ()
+@interface TabBarController ()<UIAlertViewDelegate>
 
 @end
 
 @implementation TabBarController
+#pragma mark - 要动手术的地方
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"发布"]];
-    _image.frame = CGRectMake(self.view.frame.size.width/2-25, 510 , _image.frame.size.height, self.image.frame.size.width);
-    [self.view addSubview:self.image];
+    _image.frame = CGRectMake(self.view.frame.size.width/2-25, self.view.frame.size.height - 66 , _image.frame.size.height, self.image.frame.size.width);
+    UIButton *loginButton=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25, self.view.frame.size.height - 49 , 49, self.image.frame.size.width)];
+    
+    [loginButton setTitle:@"登录融云" forState:UIControlStateNormal];
+    loginButton.backgroundColor=[UIColor blueColor];
+    [loginButton addTarget:self action:@selector(loginRongCloud) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loginButton];
     
 
 }
 
+-(void)loginRongCloud
+{
+    NSLog(@"dianjilllll");
+    [self AlertViewAddfirstSting:@"发布二手" secondSting:@"" cancelString:@"取消" tag:(NSInteger)5];
+}
+-(void)AlertViewAddfirstSting:(NSString *)firstSting
+                  secondSting:(NSString *)secondSting
+                 cancelString:(NSString *)cancelSting
+                          tag:(NSInteger )tag;
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"发布二手"
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:cancelSting
+                                          otherButtonTitles:firstSting,nil];
+    //设置标题与信息，通常在使用frame初始化AlertView时使用
+    
+    //这个属性继承自UIView，当一个视图中有多个AlertView时，可以用这个属性来区分
+    alert.tag = tag;
+    //只读属性，看AlertView是否可见
+    NSLog(@"%d",alert.visible);
+    //通过给定标题添加按钮
+    //按钮总数
+//    [alert addButtonWithTitle:secondSting];
+    
+    
+    [alert show];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 5 && buttonIndex == 1) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+      UIViewController  *viewController = [storyboard instantiateViewControllerWithIdentifier:@"TribeIssueViewController"];
+        [viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:viewController animated:YES completion:nil];
+        
+            }
+    
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

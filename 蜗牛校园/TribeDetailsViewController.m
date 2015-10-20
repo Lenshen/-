@@ -9,8 +9,12 @@
 #import "TribeDetailsViewController.h"
 #import "TribeCollectionReusableView.h"
 #import "tribeDetailCollectionViewCell.h"
+#import "tribeModel.h"
 
 @interface TribeDetailsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property (nonatomic, strong)TribeCollectionReusableView  *tribeReusableView;
+@property (nonatomic, strong)NSArray *imagaArray;
 
 
 @end
@@ -20,6 +24,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    self.tribeCollectionView.scrollEnabled =  NO;
+    self.string = @"ai";
+    
+    self.imagaArray = [NSArray arrayWithObjects:@"兴趣01",@"兴趣02",nil];
+
+    
+}
+-(UIViewController *)initWithStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    TribeDetailsViewController *td = [storyboard instantiateViewControllerWithIdentifier:@"TribeDetailsViewController"];
+    td.tribeCollectionView.scrollEnabled = NO;
+    return td;
+
 }
 - (IBAction)black:(id)sender
 {
@@ -37,15 +55,27 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     tribeDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
+    
+    UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
+
+    [cell.useheaderimage setBackgroundImage:savedImage forState:UIControlStateNormal] ;
     [cell setScrollViewContentSize];
     return cell;
     
 }
+#pragma mark - 注册collection头部视图
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    TribeCollectionReusableView *reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"tribeDetailReuseable"
+    self.tribeReusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"tribeDetailReuseable"
                                                                                           forIndexPath:indexPath];
-    return reusableView;
+    tribeModel *model = [[tribeModel alloc]initWithArray];
+    self.tribeReusableView.tribeImage.image = model.tribeImageArray[
+    self.index];
+    self.tribeReusableView.tribeNameLabel.text = model.tribeNameArray[self.index];
+    self.tribeReusableView.tribeSignLabel.text = model.tribeSignArray[self.index];
+    [self.tribeReusableView willAppear];
+    return self.tribeReusableView;
 }
 /*
 #pragma mark - Navigation

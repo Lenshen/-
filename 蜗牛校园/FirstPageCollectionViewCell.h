@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FirstPageCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIButton *useHeaderImageButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *FirstPageSmallScrollView;
 -(void)setScrollViewContentSize;
 

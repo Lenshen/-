@@ -10,5 +10,7 @@
 
 @interface tribeDetailCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIScrollView *tribeIssueScrollView;
+@property (weak, nonatomic) IBOutlet  UIButton *useheaderimage;
+
 -(void)setScrollViewContentSize;
 @end

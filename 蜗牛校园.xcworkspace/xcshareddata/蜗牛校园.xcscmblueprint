@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "01BFF7F1E921A942F2E268977F5FA20E5A24F273",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "01BFF7F1E921A942F2E268977F5FA20E5A24F273" : 0,
+    "5B8DCCA86D20C43F954EC0F9C13869D51832A605" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "591B9F61-E587-4B81-BCFE-9BBFC410F5FB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "01BFF7F1E921A942F2E268977F5FA20E5A24F273" : "%E8%9C%97%E7%89%9B%E6%A0%A1%E5%9B%AD",
+    "5B8DCCA86D20C43F954EC0F9C13869D51832A605" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "蜗牛校园",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "蜗牛校园.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Lenshen\/-.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "01BFF7F1E921A942F2E268977F5FA20E5A24F273"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Lenshen\/Training.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5B8DCCA86D20C43F954EC0F9C13869D51832A605"
+    }
+  ]
+}

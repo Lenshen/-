@@ -22,8 +22,8 @@
         self.scrollView.scrollEnabled = YES;
         self.scrollView.contentSize = CGSizeMake(size.width*3, size.height);
 
-   self.myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(scrollViewTime) userInfo:nil repeats:YES];
-    self.i = 0;
+//   self.myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(scrollViewTime) userInfo:nil repeats:YES];
+//    self.i = 0;
   
 }
 -(void)scrollViewTime

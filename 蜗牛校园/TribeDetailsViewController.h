@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TribeDetailsViewController : UIViewController
-
+@property (strong, nonatomic) IBOutlet UILabel *naviTitle;
+@property (weak, nonatomic) IBOutlet UICollectionView *tribeCollectionView;
+@property (nonatomic)int index;
+@property (nonatomic,weak)NSString *string;
+-(UIViewController *)initWithStoryboard;
 @end

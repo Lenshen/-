@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface FirstPageViewCollectionReusableView : UICollectionReusableView
+@property (weak, nonatomic) IBOutlet UIView *reusableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic)NSTimer *myTimer;
+
 @property (nonatomic)int i;
 -(void)setScrollviewContentSize;
 @end

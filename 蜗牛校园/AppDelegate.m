@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import <UIKit/UIKit.h>
+#import <RongIMKit/RongIMKit.h>
+#import <RongIMLib/RongIMLib.h>
+#define RONGCLOUD_IM_APPKEY @"8iqHjxGWCMYbaoDJarlo3F1zXcHQ2P3ZnvANCTouCAPIsE3oTc7mSFYDQ2i785IHyQNI0YrdoUQ="
 
 
 @interface AppDelegate ()<UIScrollViewDelegate>
@@ -23,7 +27,34 @@ NSString* const firstLauch   = @"firstLauch";
     // Override point for customization after application launch.]
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
                    
-    
+    [[RCIM sharedRCIM]initWithAppKey:@"p5tvi9dst1nl4"];
+#ifdef __IPHONE_8_0
+    // 在 iOS 8 下注册苹果推送，申请推送权限。
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge
+                                                                                         |UIUserNotificationTypeSound
+                                                                                         |UIUserNotificationTypeAlert) categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+#else
+    // 注册苹果推送，申请推送权限。
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
+#endif
+    UIFont *font = [UIFont systemFontOfSize:19.f];
+    NSDictionary *textAttributes = @{
+                                     NSFontAttributeName : font,
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                     };
+    [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance]
+     setBarTintColor:[UIColor colorWithRed:(1 / 255.0f) green:(149 / 255.0f) blue:(255 / 255.0f) alpha:1]];
+
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(didReceiveMessageNotification:)
+     name:RCKitDispatchMessageNotification
+     object:nil];
+    [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
+
     [self judgment];
     
     [self.window makeKeyAndVisible];
@@ -104,6 +135,7 @@ NSString* const firstLauch   = @"firstLauch";
     }
     return self.linkPagescrollView;
 }
+
 -(UITapGestureRecognizer *)singleRecognizer
 {
     UITapGestureRecognizer *singleRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imgeviewAddTap)];
@@ -129,6 +161,34 @@ NSString* const firstLauch   = @"firstLauch";
     }
 }
 
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSString *token =
+    [[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<"
+                                                           withString:@""]
+      stringByReplacingOccurrencesOfString:@">"
+      withString:@""]
+     stringByReplacingOccurrencesOfString:@" "
+     withString:@""];
+    
+    [[RCIMClient sharedRCIMClient] setDeviceToken:token];
+}
+- (void)onRCIMConnectionStatusChanged:(RCConnectionStatus)status {
+    if (status == ConnectionStatus_KICKED_OFFLINE_BY_OTHER_CLIENT) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"提示"
+                              message:@"您"
+                              @"的帐号在别的设备上登录，您被迫下线！"
+                              delegate:nil
+                              cancelButtonTitle:@"知道了"
+                              otherButtonTitles:nil, nil];
+        [alert show];
+//        ViewController *loginVC = [[ViewController alloc] init];
+//        UINavigationController *_navi =
+//        [[UINavigationController alloc] initWithRootViewController:loginVC];
+//        self.window.rootViewController = _navi;
+    }
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -234,5 +294,10 @@ NSString* const firstLauch   = @"firstLauch";
         }
     }
 }
+- (void)didReceiveMessageNotification:(NSNotification *)notification
+{
+    
+}
+
 
 @end
