@@ -10,5 +10,6 @@
 
 @interface PreparationViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (nonatomic)int index;
 
 @end

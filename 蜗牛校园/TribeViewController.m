@@ -1,4 +1,4 @@
-//
+ //
 //  TribeViewController.m
 //  蜗牛校园
 //
@@ -20,6 +20,7 @@
 @property (strong, nonatomic)NSArray *noteArray;
 @property (strong, nonatomic)NSArray *signArray;
 @property (strong, nonatomic)NSTimer *firstPageTimer;
+@property (strong, nonatomic)UITableViewCell *myCell;
 @property (weak, nonatomic) IBOutlet UIScrollView *tribeScrollView;
 @property (nonatomic)int i;
 
@@ -36,6 +37,7 @@
     self.tribeTableView.dataSource = self;
     self.tribeTableView.showsVerticalScrollIndicator = NO;
     [self setScrollViewContentSize];
+
     }
 -(void)setScrollViewContentSize
 {
@@ -87,6 +89,14 @@
     [self presentViewController:td animated:YES completion:nil];
     
 
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    return 100;
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

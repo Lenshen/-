@@ -20,14 +20,14 @@ PODS:
   - AFNetworking/UIKit (2.6.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - RongCloudIMKit (2.2.11)
+  - RongCloudIMKit (2.3.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - RongCloudIMKit (~> 2.2.10)
+  - RongCloudIMKit (~> 2.3.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
-  RongCloudIMKit: 9268043d0b4cdc5fd39a23d43d7115a3f913c6e7
+  RongCloudIMKit: 9e5814f1ada1bc679351e1d054413f1da68e4b21
 
 COCOAPODS: 0.39.0

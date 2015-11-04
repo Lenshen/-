@@ -7,6 +7,7 @@
 //
 
 #import "SearchTableViewController.h"
+#import "PreparationViewController.h"
 
 @interface SearchTableViewController ()
 
@@ -39,6 +40,13 @@
 }
 
 #pragma mark - Table view data source
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PreparationViewController *preVc =  [self.storyboard instantiateViewControllerWithIdentifier:@"PreparationViewController"];
+    [preVc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    preVc.index = (int )indexPath.row;
+    [self presentViewController:preVc animated:YES completion:nil];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.

@@ -81,19 +81,19 @@
     return 0;
 }
 
-- (NSString *)menu:(DOPDropDownMenu *)menu titleForItemsInRowAtIndexPath:(DOPIndexPath *)indexPath
-{
-    if (indexPath.column == 0) {
-        if (indexPath.row == 0) {
-            return self.cates[indexPath.item];
-        } else if (indexPath.row == 2){
-            return self.movices[indexPath.item];
-        } else if (indexPath.row == 3){
-            return self.hostels[indexPath.item];
-        }
-    }
-    return nil;
-}
+//- (NSString *)menu:(DOPDropDownMenu *)menu titleForItemsInRowAtIndexPath:(DOPIndexPath *)indexPath
+//{
+//    if (indexPath.column == 0) {
+//        if (indexPath.row == 0) {
+//            return self.cates[indexPath.item];
+//        } else if (indexPath.row == 2){
+//            return self.movices[indexPath.item];
+//        } else if (indexPath.row == 3){
+//            return self.hostels[indexPath.item];
+//        }
+//    }
+//    return nil;
+//}
 
 - (void)menu:(DOPDropDownMenu *)menu didSelectRowAtIndexPath:(DOPIndexPath *)indexPath
 {
@@ -120,21 +120,7 @@
     cell.textLabel.text = self.tabArray[indexPath.row];
     return cell;
 }
-- (IBAction)quanGuoButton:(id)sender
-{
-    self.tabArray = [NSArray arrayWithObjects:@"全国", nil];
-    
-}
-- (IBAction)fenLeiButton:(id)sender
-{
-    self.tabArray = [NSArray arrayWithObjects:@"学习",@"美妆护肤",@"服饰鞋帽",@"",@"数码电子",@"运动户外",@"宿舍生活",@"其他二手", nil];
-    NSLog(@"bbbb%ld",self.tabArray.count);
-    
-}
-- (IBAction)paiXunButton:(id)sender
-{
-    self.tabArray = [NSArray arrayWithObjects:@"默认排序",@"认证用户",@"最新发布",@"价格最低",@"价格最高", nil];
-}
+
 
 -(void)hideSearchBar
 {

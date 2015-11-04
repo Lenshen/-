@@ -10,5 +10,7 @@
 
 @interface TabBarController : UITabBarController
 @property (nonatomic , strong)UIImageView *image;
--(void)initRemoveImage:(UIImageView *)image;
+@property (nonatomic , strong)UIButton *button;
+@property (nonatomic)BOOL isOk;
+-(void)buttonHidden;
 @end

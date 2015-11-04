@@ -11,6 +11,8 @@
 #import <RongIMKit/RongIMKit.h>
 #import <RongIMLib/RongIMLib.h>
 #define RONGCLOUD_IM_APPKEY @"8iqHjxGWCMYbaoDJarlo3F1zXcHQ2P3ZnvANCTouCAPIsE3oTc7mSFYDQ2i785IHyQNI0YrdoUQ="
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds)
+
 
 
 @interface AppDelegate ()<UIScrollViewDelegate>
@@ -25,7 +27,7 @@ NSString* const firstLauch   = @"firstLauch";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.]
-    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    self.window = [[UIWindow alloc]initWithFrame:SCREEN_WIDTH];
                    
     [[RCIM sharedRCIM]initWithAppKey:@"p5tvi9dst1nl4"];
 #ifdef __IPHONE_8_0

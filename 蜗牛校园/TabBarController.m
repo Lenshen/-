@@ -8,8 +8,7 @@
 
 #import "TabBarController.h"
 
-@interface TabBarController ()<UIAlertViewDelegate>
-
+@interface TabBarController ()
 @end
 
 @implementation TabBarController
@@ -21,16 +20,30 @@
     
     self.image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"发布"]];
     _image.frame = CGRectMake(self.view.frame.size.width/2-25, self.view.frame.size.height - 66 , _image.frame.size.height, self.image.frame.size.width);
-    UIButton *loginButton=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25, self.view.frame.size.height - 49 , 49, self.image.frame.size.width)];
+    _button=[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25, self.view.frame.size.height - 59 , 49, self.image.frame.size.width)];
     
-    [loginButton setTitle:@"登录融云" forState:UIControlStateNormal];
-    loginButton.backgroundColor=[UIColor blueColor];
-    [loginButton addTarget:self action:@selector(loginRongCloud) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:loginButton];
+    [_button setBackgroundImage:[UIImage imageNamed:@"发布"] forState:UIControlStateNormal];
+    [_button addTarget:self action:@selector(loginRongCloud) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_button];
+    if (self.tabBarController.tabBar.hidden) {
+    }
+
+    _button.hidden = NO;
+
+
     
 
 }
 
+
+
+
+-(void)buttonHidden
+{
+    _button.hidden = YES;
+
+    
+}
 -(void)loginRongCloud
 {
     NSLog(@"dianjilllll");
